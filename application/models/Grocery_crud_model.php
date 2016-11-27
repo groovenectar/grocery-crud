@@ -150,6 +150,14 @@ class Grocery_crud_model  extends CI_Model  {
     	$this->db->or_where( $key, $value, $escape);
     }
 
+    function group_start() {
+        $this->db->group_start();
+    }
+
+    function group_end() {
+        $this->db->group_end();
+    }
+
     function having($key, $value = NULL, $escape = TRUE)
     {
     	$this->db->having( $key, $value, $escape);
