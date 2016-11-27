@@ -492,17 +492,23 @@ class grocery_CRUD_Model_Driver extends grocery_CRUD_Field_Types
 			foreach($this->where as $where)
 				$this->basic_model->where($where[0],$where[1],$where[2]);
 
-		if(!empty($this->or_where))
+		if(!empty($this->or_where)) {
+			$this->basic_model->group_start();
 			foreach($this->or_where as $or_where)
 				$this->basic_model->or_where($or_where[0],$or_where[1],$or_where[2]);
+			$this->basic_model->group_end();
+		}
 
 		if(!empty($this->like))
 			foreach($this->like as $like)
 				$this->basic_model->like($like[0],$like[1],$like[2]);
 
-		if(!empty($this->or_like))
+		if(!empty($this->or_like)) {
+			$this->basic_model->group_start();
 			foreach($this->or_like as $or_like)
 				$this->basic_model->or_like($or_like[0],$or_like[1],$or_like[2]);
+			$this->basic_model->group_end();
+		}
 
 		if(!empty($this->having))
 			foreach($this->having as $having)
@@ -1279,18 +1285,24 @@ class grocery_CRUD_Model_Driver extends grocery_CRUD_Field_Types
 		if(!empty($this->where))
 			foreach($this->where as $where)
 				$this->basic_model->where($where[0],$where[1],$where[2]);
-
-		if(!empty($this->or_where))
+		
+		if(!empty($this->or_where)) {
+			$this->basic_model->group_start();
 			foreach($this->or_where as $or_where)
 				$this->basic_model->or_where($or_where[0],$or_where[1],$or_where[2]);
+			$this->basic_model->group_end();
+		}
 
 		if(!empty($this->like))
 			foreach($this->like as $like)
 				$this->basic_model->like($like[0],$like[1],$like[2]);
 
-		if(!empty($this->or_like))
+		if(!empty($this->or_like)) {
+			$this->basic_model->group_start();
 			foreach($this->or_like as $or_like)
 				$this->basic_model->or_like($or_like[0],$or_like[1],$or_like[2]);
+			$this->basic_model->group_end();
+		}
 
 		if(!empty($this->having))
 			foreach($this->having as $having)
